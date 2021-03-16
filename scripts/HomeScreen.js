@@ -1,7 +1,7 @@
 import 'react-native-gesture-handler';
 import React from 'react';
 import { StyleSheet, View, Image, TouchableOpacity } from 'react-native';
-import query_2_db from './DB_Query.js'
+import { query_2_db } from './DB_Query.js'
 
 
 
@@ -24,7 +24,7 @@ export default function HomeScreen ({navigation}) {
 			</View>
 			<View style={styles.container}>
 				<TouchableOpacity onPress={() => {
-					query_2_db('select Nome, Regiao from Vinhos order by Nome ASC')
+					query_2_db('select Nome, Regiao from Vinhos order by Nome ASC');
 				}}>
 					<Image
 					source={require('../app/assets/Wine_Bottle.jpg')}

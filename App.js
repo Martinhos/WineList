@@ -5,8 +5,6 @@ import { createDrawerNavigator } from '@react-navigation/drawer';
 import HomeScreen from './scripts/HomeScreen.js'
 import MenuScreen from './scripts/MenuScreen.js'
 
-
-
 const Drawer = createDrawerNavigator();
 
 export default function App() {

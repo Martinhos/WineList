@@ -3,7 +3,6 @@ import React, { Component } from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createDrawerNavigator } from '@react-navigation/drawer';
 import * as SQLite from 'expo-sqlite';
-import HomeScreen from './scripts/HomeScreen.js'
 import MyCollection from './scripts/CollectionScreen.js'
 import AddWine from './scripts/AddWineScreen.js'
 
@@ -14,8 +13,7 @@ export default class App extends Component {
 
 		return (
 			<NavigationContainer>
-				<Drawer.Navigator initialRouteName="Home">
-					<Drawer.Screen name="Home" component={HomeScreen} />
+				<Drawer.Navigator initialRouteName="My Collection">
 					<Drawer.Screen name="My Collection" component={MyCollection} />
 					<Drawer.Screen name="Add Wine" component={AddWine} />
 				</Drawer.Navigator>

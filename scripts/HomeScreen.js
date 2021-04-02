@@ -7,7 +7,7 @@ import { Feather } from '@expo/vector-icons';
 
 
 
-export default class MyCollection extends Component {
+export default class HomeScreen extends Component {
     state = {
         selectedId: null,
     }

@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import { View, Text, Image, TouchableOpacity, FlatList, ImageBackground, Button } from 'react-native';
 import * as SQLite from 'expo-sqlite';
 import styles from '../app/config/colors.js'
+import { Feather } from '@expo/vector-icons';
 
 
 
@@ -61,15 +62,14 @@ export default class MyCollection extends Component {
                 <ImageBackground source={require('../app/assets/Wood_Backgroud.jpg')} style={styles.image_background}>
                     <View style={styles.menu_bar}>
                         <View style={{flex: 1, flexDirection: 'row', alignItems:'flex-end'}}>
-                            <TouchableOpacity onPress={() => {
-                                this.props.navigation.openDrawer();
-                            }}>
-                                <Image
-                                style={styles.menu_icon}
-                                source={require('../app/assets/menu_icon.png')}
+                            <Feather
+                                    name = 'menu'
+                                    size={55}
+                                    onPress={() => {
+                                        this.props.navigation.openDrawer();
+                                    }} style={styles.menu_icon}
                                 />
-                            </TouchableOpacity>
-                        </View>
+                            </View>
                     </View>
                     <View style={styles.container}>
                             <FlatList

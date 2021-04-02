@@ -1,9 +1,10 @@
 import 'react-native-gesture-handler';
 import React, { Component, useState } from 'react';
-import { View, Image, TouchableOpacity, TextInput, Button, Alert, ImageBackground } from 'react-native';
+import { View, TextInput, Button, Alert, ImageBackground, ScrollView } from 'react-native';
 import * as SQLite from 'expo-sqlite';
 import { FlatList } from 'react-native-gesture-handler';
 import styles from '../app/config/colors.js'
+import { Feather } from '@expo/vector-icons';
 //import Collection from './Collection.js'
 
 const Inputs = [
@@ -105,22 +106,23 @@ export default class AddWine extends Component {
 				<ImageBackground source={require('../app/assets/Wood_Backgroud.jpg')} style={styles.image_background}>
                     <View style={styles.menu_bar}>
                         <View style={{flex: 1, flexDirection: 'row', alignItems:'flex-end'}}>
-                            <TouchableOpacity onPress={() => {
-                                this.props.navigation.openDrawer();
-                            }}>
-                                <Image
-                                style={styles.menu_icon}
-                                source={require('../app/assets/menu_icon.png')}
-                                />
-                            </TouchableOpacity>
+                            <Feather
+								name = 'menu'
+								size={55}
+								onPress={() => {
+									this.props.navigation.openDrawer();
+								}} style={styles.menu_icon}
+							/>
                         </View>
                     </View>
                     <View style={styles.container}>
-                        <FlatList
-                            data={Inputs}
-                            renderItem={renderItem}
-                            keyExtractor={item => item.id}
-                        />
+                        <ScrollView>
+                            <FlatList
+                                data={Inputs}
+                                renderItem={renderItem}
+                                keyExtractor={item => item.id}
+                            />
+                        </ScrollView>
                         <Button
                             title='Submit'
                             onPress={() => {
@@ -132,6 +134,7 @@ export default class AddWine extends Component {
                                                 text: 'OK',
                                             },
                                         ]);
+                                        this.props.navigation.navigate('My Collection')
                                     }, (tx, error) => {
                                         console.log(error);
                                     });

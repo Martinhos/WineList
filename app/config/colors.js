@@ -7,8 +7,7 @@ export default styles = StyleSheet.create({
 		justifyContent: "center",
 	},
 	menu_icon: {
-		width: 60,
-		height: 60
+		marginLeft: 10,
 	},
 	menu_bar: {
 		justifyContent: 'flex-end',

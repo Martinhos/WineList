@@ -6,7 +6,7 @@
     "orientation": "portrait",
     "icon": "./app/assets/wine-cellar.png",
     "splash": {
-      "image": "./app/assets/barrel.png",
+      "image": "./app/assets/icon.png",
       "resizeMode": "contain",
       "backgroundColor": "#592b17"
     },

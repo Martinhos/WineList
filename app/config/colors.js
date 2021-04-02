@@ -6,22 +6,10 @@ export default styles = StyleSheet.create({
 		alignItems: "center",
 		justifyContent: "center",
 	},
-	menu_icon: {
-		marginLeft: 10,
-	},
-	menu_bar: {
-		justifyContent: 'flex-end',
-		width: '100%',
-		height: '10%',
-		backgroundColor: '#592b17',
-	},
-	item: {
-		padding: 20,
-		marginVertical: 8,
-		marginHorizontal: 16,
-	},
-    title: {
-      fontSize: 32,
+    image_background: {
+        flex: 1,
+        resizeMode: "cover",
+        justifyContent: "center"
     },
 	input: {
         height: 100,
@@ -32,9 +20,21 @@ export default styles = StyleSheet.create({
         textAlign: 'center',
         color: '#fff',
     },
-    image_background: {
-        flex: 1,
-        resizeMode: "cover",
-        justifyContent: "center"
-    }
+	item: {
+		padding: 20,
+		marginVertical: 8,
+		marginHorizontal: 16,
+	},
+	menu_icon: {
+		marginLeft: 10,
+	},
+	menu_bar: {
+		justifyContent: 'flex-end',
+		width: '100%',
+		height: '10%',
+		backgroundColor: '#592b17',
+	},
+    title: {
+      fontSize: 32,
+    },
 })

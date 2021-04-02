@@ -59,31 +59,18 @@ export default class HomeScreen extends Component {
 
         return(
             <View style={{flex: 1}}>
-                <ImageBackground source={require('../app/assets/Wood_Backgroud.jpg')} style={styles.image_background}>
-                    <View style={styles.menu_bar}>
-                        <View style={{flex: 1, flexDirection: 'row', alignItems:'flex-end'}}>
-                            <Feather
-                                    name = 'menu'
-                                    size={55}
-                                    onPress={() => {
-                                        this.props.navigation.openDrawer();
-                                    }} style={styles.menu_icon}
-                                />
-                            </View>
-                    </View>
-                    <View style={styles.container}>
-                            <FlatList
-                                data={this.state.items}
-                                renderItem={renderItem}
-                                keyExtractor={item => item.ID.toString()}
-                                extraData={this.state.selectedId}
-                            />
-                            <Button
-                            title={'Update'}
-                            onPress={() => this.update()}
-                            />
-                    </View>
-                </ImageBackground>
+                <View style={styles.container}>
+                        <FlatList
+                            data={this.state.items}
+                            renderItem={renderItem}
+                            keyExtractor={item => item.ID.toString()}
+                            extraData={this.state.selectedId}
+                        />
+                        <Button
+                        title={'Update'}
+                        onPress={() => this.update()}
+                        />
+                </View>
             </View>
         );
     }

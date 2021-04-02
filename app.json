@@ -4,11 +4,11 @@
     "slug": "WineList",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./app/assets/icon.png",
+    "icon": "./app/assets/wine-cellar.png",
     "splash": {
-      "image": "./app/assets/splash.png",
+      "image": "./app/assets/barrel.png",
       "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
+      "backgroundColor": "#592b17"
     },
     "updates": {
       "fallbackToCacheTimeout": 0
@@ -21,8 +21,8 @@
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./app/assets/adaptive-icon.png",
-        "backgroundColor": "#FFFFFF"
+        "foregroundImage": "./app/assets/wine-cellar.png",
+        "backgroundColor": "#592B17"
       },
       "package": "com.martinhos.WineList"
     },

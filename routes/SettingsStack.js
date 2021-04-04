@@ -2,7 +2,7 @@ import 'react-native-gesture-handler';
 import React, { Component, } from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
 import Settings from '../scripts/Settings';
-import Header from '../shared/header';
+import { MaterialIcons } from '@expo/vector-icons';
 
 
 export default class SettingsStack extends Component {
@@ -12,11 +12,12 @@ export default class SettingsStack extends Component {
 
         return(
             <Stack.Navigator>
-                <Stack.Screen name='Settings' component={Settings} /* options={{
-                    header: () => {return(<Header navigation={this.props.navigation} title='Settings' />)},
+                <Stack.Screen name='Settings' component={Settings} options={{
+                    headerTitle: 'Settings',
                     headerTintColor: '#444',
-                    headerStyle: { backgroundColor: '#000', height: 60, },
-                    }} */
+                    headerStyle: { backgroundColor: '#eee', height: 60, },
+                    headerLeft: () => (<MaterialIcons name='menu' size={28} onPress={() => {this.props.navigation.openDrawer()}} style={styles.menu_icon}/>)
+                    }}
                 />
             </Stack.Navigator>
         );

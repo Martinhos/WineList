@@ -1,6 +1,6 @@
 import 'react-native-gesture-handler';
 import React, { Component } from 'react';
-import { View, Text, TouchableOpacity, FlatList, ScrollView, Modal, Alert } from 'react-native';
+import { View, Text, TouchableOpacity, FlatList, ScrollView, Modal, Alert, RefreshControl } from 'react-native';
 import { BlurView } from 'expo-blur';
 import * as SQLite from 'expo-sqlite';
 import styles from '../app/config/colors'
@@ -22,8 +22,11 @@ export default class HomeScreen extends Component {
 		db.transaction((tx) => {
             this.setState({refreshing: true})
 			tx.executeSql('SELECT * FROM Vinhos'/*'DELETE from Vinhos where ID == 3'*/, [], (_, ResultSet) => {
-				//console.log(this.state);
-				this.setState({items: ResultSet.rows._array});
+				//console.log(ResultSet.rows._array.length);
+                if (ResultSet.rows._array.length !== 0) {
+				    this.setState({items: ResultSet.rows._array});
+                }
+                //console.log(this.state.items)
                 this.setState({refreshing: false})
 				//console.log(this.props.route);
 			}, (tx, error) => {
@@ -104,7 +107,16 @@ export default class HomeScreen extends Component {
                         </BlurView>
                     </Modal>
                     {this.state.items === null ? (
-                        <Text>You don't have items to show</Text>
+                        <ScrollView
+                        refreshControl={
+                          <RefreshControl
+                            refreshing={this.state.refreshing}
+                            onRefresh={() => {this.update()}}
+                          />
+                        }
+                      >
+                        <Text>You don't have any Wines Saved</Text>
+                      </ScrollView>
                     ) : (
                         <FlatList
                         data={this.state.items}

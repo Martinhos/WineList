@@ -46,6 +46,7 @@ export default class App extends Component {
 					<Drawer.Screen name='Settings' component={SettingsStack} />
 				</Drawer.Navigator>
 			</NavigationContainer>
+			
 		);
 		
 	};

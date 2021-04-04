@@ -1,10 +1,45 @@
 import { StyleSheet } from 'react-native';
 
 export default styles = StyleSheet.create({
+	add_icon: {
+		position: 'absolute',
+		right: 16,
+	},
+	card: {
+		justifyContent: 'center',
+		borderRadius: 6,
+		elevation: 3,
+		backgroundColor: '#fff',
+		shadowOffset: { width: 1, height: 1, },
+		shadowOpacity: 1,
+		shadowColor: '#333',
+		shadowRadius: 2,
+		marginHorizontal: 4,
+		marginVertical: 6,
+	},
+	card_content: {
+		marginHorizontal: 18,
+		marginVertical: 10,
+	},
+	close_icon: {
+		paddingBottom: 10,
+	},
 	container: {
 		flex: 1,
-		alignItems: "center",
-		justifyContent: "center",
+		padding: 20,
+	},
+	header: {
+		width: '100%',
+		height: '100%',
+		flexDirection: 'row',
+		alignItems: 'center',
+		justifyContent: 'center',
+	},
+	header_text: {
+		fontWeight: 'bold',
+		fontSize: 20,
+		color: '#300',
+		letterSpacing: 1,
 	},
     image_background: {
         flex: 1,
@@ -12,21 +47,15 @@ export default styles = StyleSheet.create({
         justifyContent: "center"
     },
 	input: {
-        height: 100,
-        width: '90%',
-        margin: 12,
         borderWidth: 1,
-        borderColor: '#b0b0b0',
-        textAlign: 'center',
-        color: '#fff',
+		borderColor: '#ddd',
+		padding: 10,
+		fontSize: 18,
+		borderRadius: 6,
     },
-	item: {
-		padding: 20,
-		marginVertical: 8,
-		marginHorizontal: 16,
-	},
 	menu_icon: {
-		marginLeft: 10,
+		position: 'absolute',
+		left: 16,
 	},
 	menu_bar: {
 		justifyContent: 'flex-end',
@@ -34,7 +63,27 @@ export default styles = StyleSheet.create({
 		height: '10%',
 		backgroundColor: '#592b17',
 	},
+	modal: {
+		flex: 1,
+		justifyContent: 'center',
+		alignItems: 'center',
+	},
+	modal_content: {
+		justifyContent: 'flex-start',
+		width: '80%',
+		height: '80%',
+		backgroundColor: '#fff',
+
+	},
+	more_icon: {
+		position: 'absolute',
+		right: 0,
+	},
     title: {
-      fontSize: 32,
+		flex: 1,
+		alignItems: 'center',
+      	fontSize: 18,
+	  	color: '#333',
+
     },
 })

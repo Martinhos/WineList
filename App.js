@@ -1,5 +1,9 @@
 import React, { Component } from 'react';
 import HomeStack from './routes/HomeStack';
+import SettingsStack from './routes/SettingsStack';
+import { createDrawerNavigator } from '@react-navigation/drawer';
+import { NavigationContainer } from '@react-navigation/native';
+import Navigator from './routes/HomeStack'
 import * as SQLite from 'expo-sqlite';
 
 export default class App extends Component {
@@ -28,14 +32,20 @@ export default class App extends Component {
 		}, (err) => {
 			console.log(err)
 		}, () => {
-			console.log('Success!')
 		});
 	};
 
 	render() {
 
+		const Drawer = createDrawerNavigator();
+
 		return (
-			<HomeStack />
+			<NavigationContainer>
+				<Drawer.Navigator>
+					<Drawer.Screen name='Home' component={HomeStack} />
+					<Drawer.Screen name='Settings' component={SettingsStack} />
+				</Drawer.Navigator>
+			</NavigationContainer>
 		);
 		
 	};

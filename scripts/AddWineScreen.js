@@ -23,6 +23,11 @@ export default class AddWine extends Component {
     };
 
     render() {
+
+        const addwine = (review) => {
+            
+        };
+
         return(
             <View style={{flex:1}}>
                 <TouchableWithoutFeedback onPress={Keyboard.dismiss} accessible={false}>
@@ -36,7 +41,6 @@ export default class AddWine extends Component {
                                 value={this.state.nome}
                                 placeholder='Nome do Vinho'
                                 keyboardType='default'
-                                placeholderTextColor='#444'
                             />
                             <TextInput
                                 style={styles.input}
@@ -46,7 +50,6 @@ export default class AddWine extends Component {
                                 value={this.state.regiao}
                                 placeholder='Região do Vinho'
                                 keyboardType='default'
-                                placeholderTextColor='#444'
                             />
                             <TextInput
                                 style={styles.input}
@@ -56,7 +59,6 @@ export default class AddWine extends Component {
                                 value={this.state.ano}
                                 placeholder='Ano de Produção'
                                 keyboardType='numeric'
-                                placeholderTextColor='#444'
                             />
                             <TextInput
                                 style={styles.input}
@@ -66,7 +68,6 @@ export default class AddWine extends Component {
                                 value={this.state.tipo}
                                 placeholder='Tipo de  Vinho'
                                 keyboardType='default'
-                                placeholderTextColor='#444'
                             />
                             <TextInput
                                 style={styles.input}
@@ -76,7 +77,6 @@ export default class AddWine extends Component {
                                 value={this.state.aval}
                                 placeholder='Avaliação do Vinho'
                                 keyboardType='numeric'
-                                placeholderTextColor='#444'
                             />
                             <TextInput
                                 style={styles.input}
@@ -86,7 +86,6 @@ export default class AddWine extends Component {
                                 value={this.state.periodo_i}
                                 placeholder='Período Ideal de Consumo - Inicial'
                                 keyboardType='numeric'
-                                placeholderTextColor='#444'
                             />
                             <TextInput
                                 style={styles.input}
@@ -96,7 +95,6 @@ export default class AddWine extends Component {
                                 value={this.state.periodo_f}
                                 placeholder='Período Ideal de Consumo - Inicial'
                                 keyboardType='default'
-                                placeholderTextColor='#444'
                             />
                             <TextInput
                                 style={styles.input}
@@ -106,7 +104,6 @@ export default class AddWine extends Component {
                                 value={this.state.preco}
                                 placeholder='Preço do Vinho'
                                 keyboardType='numeric'
-                                placeholderTextColor='#444'
                             />
                             <TextInput
                                 style={styles.input}
@@ -116,7 +113,6 @@ export default class AddWine extends Component {
                                 value={this.state.alcool}
                                 placeholder='Graduação Alcoólica'
                                 keyboardType='numeric'
-                                placeholderTextColor='#444'
                             />
                         </ScrollView>
                         <Button
@@ -130,7 +126,7 @@ export default class AddWine extends Component {
                                                 text: 'OK',
                                             },
                                         ]);
-                                        this.props.navigation.navigate('My Collection')
+                                        this.props.navigation.goBack();
                                     }, (tx, error) => {
                                         console.log(error);
                                     });

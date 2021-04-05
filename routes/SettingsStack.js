@@ -13,7 +13,7 @@ export default class SettingsStack extends Component {
         return(
             <Stack.Navigator>
                 <Stack.Screen name='Settings' component={Settings} options={{
-                    headerTitle: 'Settings',
+                    headerTitle: 'Definições',
                     headerTintColor: '#444',
                     headerStyle: { backgroundColor: '#eee', height: 60, },
                     headerLeft: () => (<MaterialIcons name='menu' size={28} onPress={() => {this.props.navigation.openDrawer()}} style={styles.menu_icon}/>)

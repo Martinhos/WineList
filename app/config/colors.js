@@ -21,9 +21,6 @@ export default styles = StyleSheet.create({
 		marginHorizontal: 18,
 		marginVertical: 10,
 	},
-	close_icon: {
-		paddingBottom: 10,
-	},
 	container: {
 		flex: 1,
 		padding: 20,
@@ -46,13 +43,6 @@ export default styles = StyleSheet.create({
         resizeMode: "cover",
         justifyContent: "center"
     },
-	input: {
-        borderWidth: 1,
-		borderColor: '#ddd',
-		padding: 10,
-		fontSize: 18,
-		borderRadius: 6,
-    },
 	menu_icon: {
 		position: 'absolute',
 		left: 16,
@@ -63,27 +53,4 @@ export default styles = StyleSheet.create({
 		height: '10%',
 		backgroundColor: '#592b17',
 	},
-	modal: {
-		flex: 1,
-		justifyContent: 'center',
-		alignItems: 'center',
-	},
-	modal_content: {
-		justifyContent: 'flex-start',
-		width: '80%',
-		height: '80%',
-		backgroundColor: '#fff',
-
-	},
-	more_icon: {
-		position: 'absolute',
-		right: 0,
-	},
-    title: {
-		flex: 1,
-		alignItems: 'center',
-      	fontSize: 18,
-	  	color: '#333',
-
-    },
 })

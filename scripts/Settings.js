@@ -1,11 +1,8 @@
 import 'react-native-gesture-handler';
 import React, { Component } from 'react';
-import { View, DevSettings, TouchableOpacity, FlatList, ScrollView, Modal, Alert, Button } from 'react-native';
-import { BlurView } from 'expo-blur';
+import { View, Alert, Button } from 'react-native';
 import * as SQLite from 'expo-sqlite';
-import styles from '../app/config/colors'
-import Card from '../shared/card';
-import { MaterialIcons } from '@expo/vector-icons';
+import RNRestart from 'react-native-restart';
 
 
 export default class Settings extends Component {
@@ -19,21 +16,20 @@ export default class Settings extends Component {
         const confirmDelete = () => {
             Alert.alert('Are you sure?', 'Are you sure you want to delete the Database? This action can not be reverted', [
                 {
-                    title: 'CANCEL',
+                    text: 'CANCEL',
                     style: 'cancel',
                 },
                 {
-                    title: 'YES',
+                    text: 'YES',
                     onPress: deleteDB
                 },
             ])
         };
 
         const errorOcurred = (err) => {
-            Alert.alert('Error', 'An error has ocurred while deleting the database: ' + err, [
+            Alert.alert('Error', 'An error has ocurred while deleting the database: ' + err + '. Please restart the App.', [
                 {
-                    title: 'OK',
-                    onPress: () => {DevSettings.reload()}
+                    text: 'OK',
                 },
             ])
         }
@@ -41,27 +37,26 @@ export default class Settings extends Component {
         const deleteDB = () => {
             const db = SQLite.openDatabase('Lista_Vinhos.db');
             db.transaction((tx) => {
-                tx.executeSql('DROP TABLE Castas_Vinho', [], (tx, _) => {
+                tx.executeSql('DROP TABLE IF EXISTS Castas_Vinho', [], (tx, _) => {
                     if (this.state.error === false) {
-                        tx.executeSql('DROP TABLE Castas', [], (tx, _) => {
+                        tx.executeSql('DROP TABLE IF EXISTS Castas', [], (tx, _) => {
                             if (this.state.error === false) {
-                                tx.executeSql('DROP TABLE Enologos_vinho', [], (tx, _) => {
+                                tx.executeSql('DROP TABLE IF EXISTS Enologos_vinho', [], (tx, _) => {
                                     if (this.state.error === false) {
-                                        tx.executeSql('DROP TABLE Enologos', [], (tx, _) => {
+                                        tx.executeSql('DROP TABLE IF EXISTS Enologos', [], (tx, _) => {
                                             if (this.state.error === false) {
-                                                tx.executeSql('DROP TABLE Subnomes_vinhos', [], (tx, _) => {
+                                                tx.executeSql('DROP TABLE IF EXISTS Subnomes_vinhos', [], (tx, _) => {
                                                     if (this.state.error === false) {
-                                                        tx.executeSql('DROP TABLE Subnomes', [], (tx, _) => {
+                                                        tx.executeSql('DROP TABLE IF EXISTS Subnomes', [], (tx, _) => {
                                                             if (this.state.error === false) {
-                                                                tx.executeSql('DROP TABLE Produtor_Vinho', [], (tx, _) => {
+                                                                tx.executeSql('DROP TABLE IF EXISTS Produtor_Vinho', [], (tx, _) => {
                                                                     if (this.state.error === false) {
-                                                                        tx.executeSql('DROP TABLE Produtor', [], (tx, _) => {
+                                                                        tx.executeSql('DROP TABLE IF EXISTS Produtor', [], (tx, _) => {
                                                                             if (this.state.error === false) {
-                                                                                tx.executeSql('DROP TABLE Vinhos', [], (tx, _) => {
-                                                                                    Alert.alert('Success', 'The Database has been successfuly deleted', [
+                                                                                tx.executeSql('DROP TABLE IF EXISTS Vinhos', [], (tx, _) => {
+                                                                                    Alert.alert('Success', 'The Database has been successfuly deleted. Please restart the App', [
                                                                                         {
-                                                                                            title: 'OK',
-                                                                                            onPress: () => {DevSettings.reload()}
+                                                                                            text: 'OK',
                                                                                         }
                                                                                     ]);
                                                                                 }, (_, err) => {
@@ -116,7 +111,7 @@ export default class Settings extends Component {
 
         return(
         <View>
-            <Button title='Delete DB' onPress={confirmDelete}/>
+            <Button title='Apagar Todos os Registos' onPress={confirmDelete}/>
         </View>
         )
     }

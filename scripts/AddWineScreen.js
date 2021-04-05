@@ -1,10 +1,10 @@
 import 'react-native-gesture-handler';
 import React, { Component, useState } from 'react';
-import { View, TextInput, Button, Alert, ScrollView, TouchableWithoutFeedback } from 'react-native';
+import { StyleSheet, View, TextInput, Button, Alert, ScrollView, TouchableWithoutFeedback, TouchableOpacity, Text } from 'react-native';
 import * as SQLite from 'expo-sqlite';
-import styles from '../app/config/colors.js'
-import { Feather } from '@expo/vector-icons';
+import globalstyles from '../app/config/colors.js'
 import {Keyboard} from 'react-native'
+import Card from '../shared/card'
 
 
 
@@ -24,15 +24,12 @@ export default class AddWine extends Component {
 
     render() {
 
-        const addwine = (review) => {
-            
-        };
-
         return(
             <View style={{flex:1}}>
                 <TouchableWithoutFeedback onPress={Keyboard.dismiss} accessible={false}>
-                    <View style={styles.container}>
+                    <View style={globalstyles.container}>
                         <ScrollView>
+                            <Text style={styles.sectionTitle}>Vinho</Text>
                             <TextInput
                                 style={styles.input}
                                 onChangeText={(value) => {
@@ -42,15 +39,20 @@ export default class AddWine extends Component {
                                 placeholder='Nome do Vinho'
                                 keyboardType='default'
                             />
-                            <TextInput
-                                style={styles.input}
-                                onChangeText={(value) => {
-                                    this.state.regiao = value;
-                                }}
-                                value={this.state.regiao}
-                                placeholder='Região do Vinho'
-                                keyboardType='default'
-                            />
+                            <View>
+                                <View style={{flexDirection: 'row', justifyContent: 'center'}}>
+                                    <Text style={styles.label}>Região</Text>
+                                    {this.state.regiao === null ? (
+                                        <TouchableOpacity>
+                                            <Card>
+                                                <Text>Adicionar Região</Text>
+                                            </Card>
+                                        </TouchableOpacity>
+                                    ) : (
+                                        <Text>{this.state.regiao}</Text>
+                                    )}
+                                </View>
+                            </View>
                             <TextInput
                                 style={styles.input}
                                 onChangeText={(value) => {
@@ -148,3 +150,23 @@ export default class AddWine extends Component {
         );
     };
 }
+
+const styles = StyleSheet.create({
+	input: {
+        borderWidth: 1,
+		borderColor: '#ddd',
+		padding: 10,
+		fontSize: 18,
+		borderRadius: 6,
+    },
+    sectionTitle: {
+        fontWeight: 'bold',
+        fontSize: 20,
+        paddingBottom: 10,
+    },
+    label: {
+		padding: 10,
+		fontSize: 18,
+        width: '45%'
+    },
+});
